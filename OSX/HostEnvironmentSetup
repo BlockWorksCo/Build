@@ -1,0 +1,21 @@
+
+
+#
+# User configurables.
+#
+export BLOCKWORKS_BUILD_HOSTTYPE=OSX
+export BLOCKWORKS_BUILD_BASE=~/BlockWorks/Build
+
+
+#
+# Derive the correct path from the user configurables.
+# *NOTE: Make sure that host-specific paths come *before* Common paths to allow us to 
+# reuse the Common code while still have the ability to override for Host specifics.
+#
+export PATH=$BLOCKWORKS_BUILD_BASE/Common:$PATH
+export PATH=$BLOCKWORKS_BUILD_BASE/$BLOCKWORKS_BUILD_HOSTTYPE:$PATH
+export VAGRANT_CWD=$BLOCKWORKS_BUILD_BASE/Common
+export VAGRANT_VAGRANTFILE=$BLOCKWORKS_BUILD_BASE/Common/Vagrantfile
+
+
+

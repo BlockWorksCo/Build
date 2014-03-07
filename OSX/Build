@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export THISDIRFROMHOSTROOT=/HostRoot`pwd`
+echo $THISDIRFROMHOSTROOT
+
+export args="$@"
+vagrant ssh -c "cd $THISDIRFROMHOSTROOT && make $args"
+
