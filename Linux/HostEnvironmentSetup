@@ -5,6 +5,7 @@
 #
 export BLOCKWORKS_BUILD_HOSTTYPE=OSX
 export BLOCKWORKS_BUILD_BASE=~/BlockWorks/Build
+export BLOCKWORKS_PLATFORM_BASE=~/BlockWorks/Platform
 
 
 #
