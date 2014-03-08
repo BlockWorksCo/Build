@@ -77,7 +77,7 @@ apt-get install -y avrdude
 #
 #
 #
-echo export ROCKETBLOX=/RocketBlox >> ~vagrant/.bash_profile
+echo export BLOCKWORKS_BUILD=/BlockWorks >> ~vagrant/.bash_profile
 echo export HOSTROOT=/HostRoot >> ~vagrant/.bash_profile
 echo ls=\'ls -la\' >> ~vagrant/.bash_profile
 
