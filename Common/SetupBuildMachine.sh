@@ -74,12 +74,23 @@ apt-get install -y simulavr
 apt-get install -y avr-libc
 apt-get install -y avrdude
 
+
+#
+# RaspberryPi toolchain.
+#
+apt-get install git rsync cmake ia32-libs
+git clone git://github.com/raspberrypi/tools.git
+export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
+
+
 #
 #
 #
 echo export BLOCKWORKS_BUILD=/BlockWorks >> ~vagrant/.bash_profile
 echo export HOSTROOT=/HostRoot >> ~vagrant/.bash_profile
 echo ls=\'ls -la\' >> ~vagrant/.bash_profile
+echo export PATH=~/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin\:\$PATH >> ~vagrant/.bash_profile
+
 
 chmod -R a+rw ~vagrant/*
 
