@@ -10,8 +10,6 @@ import Queue
 import signal
 import os
 import ctypes
-import win32api
-import win32con
 
 
 def FilterLine(line):
@@ -55,10 +53,6 @@ def ShowAllAvailable(q):
 
 
 def handler(signum, frame):
-    #sys.stdout.write('  ** Signal handler called with signal %d  ** '%(signum) )
-    #sys.stdout.flush()
-    #pid.send_signal(signal.SIGTERM)
-    #win32api.GenerateConsoleCtrlEvent(win32con.CTRL_BREAK_EVENT, pid.pid)
     toGDB.write('%c'%(3))
     toGDB.flush()
 
@@ -67,7 +61,7 @@ signal.signal(signal.SIGINT , handler)
 
 
 #pid     = subprocess.Popen(shlex.split("ssh -t -F vagrant_ssh_config default 'gdb' "),  stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT, creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
-pid     = subprocess.Popen(shlex.split("ssh build@localhost -p 2222 -t -t 'gdb'"),  stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT, creationflags=512)
+pid     = subprocess.Popen(shlex.split("ssh build@localhost -p 2222 -t -t 'gdb'"),  stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
 toGDB   = pid.stdin
 fromGDB = pid.stdout
 fromGDBq= Queue.Queue()

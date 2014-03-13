@@ -1,4 +1,4 @@
 
 
-vagrant ssh-config > vagrant_ssh_config && python $BLOCKWORKS_BUILD_BASE/Common/Filter.py %* | tee DebugOutput
+vagrant ssh-config > vagrant_ssh_config && python $BLOCKWORKS_BUILD_BASE/$BLOCKWORKS_BUILD_HOSTTYPE/Filter.py %* | tee DebugOutput
 
