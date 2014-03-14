@@ -1,4 +1,6 @@
 
 
-vagrant ssh-config > vagrant_ssh_config && python $BLOCKWORKS_BUILD_BASE/$BLOCKWORKS_BUILD_HOSTTYPE/Filter.py %* | tee DebugOutput
+vagrant ssh-config > sshConfig
+args="$@"
+ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && gdb $args"
 

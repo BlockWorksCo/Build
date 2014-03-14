@@ -26,6 +26,7 @@ apt-get install -y python-software-properties
 apt-get install -y build-essential
 apt-get install -y clang
 apt-get install gdbserver
+apt-get install gdb
 
 #
 # MSP430 development
