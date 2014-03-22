@@ -15,15 +15,10 @@ def Proxy(command):
     """
     commandList = shlex.split(command)
     print(commandList)
-    p = subprocess.Popen(['/usr/bin/bc'], stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    p = subprocess.Popen(commandList, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
 
-    #p.stdin.write('one\ntwo\nthree\four\nfive\n')
-    #output,err = p.communicate(input='2+2\n')
-    #print('[%s]'%output)
     while p.poll() is None:
-    #while True:
-        #p.stdin.flush()
-        #output,err = p.communicate(input='2+2\n')
+
         try:
             p.stdin.write('3+3\n')
             output  = p.stdout.readline()
