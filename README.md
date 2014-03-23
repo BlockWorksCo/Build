@@ -19,6 +19,6 @@ The Build VM will be provisioned and run allowing you to perform the following:
 
 Dependencies:
 * nose
-* pexpect
+* pexpect/winpexpect on Windows (https://bitbucket.org/geertj/winpexpect/wiki/Home).
 
 
