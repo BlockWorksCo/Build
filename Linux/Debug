@@ -1,6 +1,8 @@
+#!/bin/bash
 
 
 vagrant ssh-config > sshConfig
 args="$@"
-ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && gdb $args"
+#ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD || (gdbserver :2222 $args & gdb $args)"
+ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && (gdb $args)"
 

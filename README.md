@@ -16,3 +16,9 @@ The Build VM will be provisioned and run allowing you to perform the following:
 
 
 
+
+Dependencies:
+* nose
+* pexpect
+
+
