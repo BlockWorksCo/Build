@@ -10,7 +10,6 @@ echo host is: $BLOCKWORKS_BUILD_HOSTTYPE
 echo args without platform: $ARGS_WITHOUT_PLATFORM
 
 vagrant ssh-config > sshConfig
-args="$@"
-#ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD || (gdbserver :2222 $args & gdb $args)"
-ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && (gdb $ARGS_WITHOUT_PLATFORM)"
+source $BLOCKWORKS_BUILD_BASE/Common/$PLATFORM/Debug
+
 
