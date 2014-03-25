@@ -79,7 +79,7 @@ apt-get install -y avrdude
 #
 # RaspberryPi toolchain.
 #
-apt-get install git rsync cmake ia32-libs
+apt-get install git rsync cmake ia32-libs-multiarch
 git clone git://github.com/raspberrypi/tools.git
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 
