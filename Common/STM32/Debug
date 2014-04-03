@@ -3,5 +3,10 @@
 echo STM32 Debug script.
 echo $ARGS_WITHOUT_PLATFORM
 
-ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && (st-util & arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM)"
 
+st-util & 
+gdbserverPID=$!
+
+echo pid is $gdbserverPID
+arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM
+kill $gdbserverPID
