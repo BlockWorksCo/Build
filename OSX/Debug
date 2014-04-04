@@ -2,14 +2,6 @@
 
 
 
-export PLATFORM=`echo $* | sed -E "s/.*PLATFORM=([a-zA-Z0-9]+).*/\1/g"`
-export ARGS_WITHOUT_PLATFORM=`echo $* | sed -E "s/PLATFORM=([a-zA-Z0-9]+)//g" `
-
-echo target is: $PLATFORM
-echo host is: $BLOCKWORKS_BUILD_HOSTTYPE
-echo args without platform: $ARGS_WITHOUT_PLATFORM
-
-vagrant ssh-config > sshConfig
-source $BLOCKWORKS_BUILD_BASE/Common/$PLATFORM/Debug
-
+export THISDIRFROMHOSTROOT=`pwd`
+vagrant ssh -c "cd /HostRoot$THISDIRFROMHOSTROOT && /HostRoot$BLOCKWORKS_BUILD_BASE/Common/$BLOCKWORKS_TARGET_PLATFORM/Debug %* -ex 'tar ext:4242' "
 

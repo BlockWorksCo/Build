@@ -1,6 +1,14 @@
 
 
 rem
+rem Argument is the target platform STM32/MSP320/Win32/Linux
+rem
+set BLOCKWORKS_TARGET_PLATFORM=%1
+set BLOCKWORKS_HOST_PLATFORM=Windows
+
+
+
+rem
 rem User configurables.
 rem
 set BLOCKWORKS_BUILD_HOSTTYPE=Windows
