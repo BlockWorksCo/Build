@@ -1,6 +1,13 @@
 
 
 #
+# Argument is the target platform STM32/MSP320/Win32/Linux
+#
+export BLOCKWORKS_TARGET_PLATFORM=$1
+export BLOCKWORKS_HOST_PLATFORM=OSX
+
+
+#
 # User configurables.
 #
 export BLOCKWORKS_BUILD_HOSTTYPE=OSX
