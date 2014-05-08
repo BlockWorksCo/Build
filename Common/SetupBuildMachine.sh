@@ -74,7 +74,7 @@ apt-get install -y binutils-avr
 apt-get install -y simulavr
 apt-get install -y avr-libc
 apt-get install -y avrdude
-
+apt-get install -y arduino-core
 
 #
 # RaspberryPi toolchain.
