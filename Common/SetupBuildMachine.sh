@@ -79,22 +79,21 @@ apt-get install -y arduino-core
 #
 # RaspberryPi toolchain.
 #
+chmod -R a+rw ~vagrant/*
 apt-get install -y git rsync cmake ia32-libs-multiarch
-cd ~/
+cd ~vagrant
 git clone https://github.com/raspberrypi/tools.git
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 
 
 #
-#
+# Setup paths.
 #
 echo export BLOCKWORKS_BUILD=/BlockWorks >> ~vagrant/.bash_profile
 echo export HOSTROOT=/HostRoot >> ~vagrant/.bash_profile
 echo ls=\'ls -la\' >> ~vagrant/.bash_profile
 echo export PATH=~vagrant/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin\:\$PATH >> ~vagrant/.bash_profile
 
-
-chmod -R a+rw ~vagrant/*
 
 #
 # setup 'build' user with ssh auth from host.
