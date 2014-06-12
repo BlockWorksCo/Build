@@ -1,12 +1,15 @@
 #!/bin/bash
 
-echo STM32 Debug script.
-echo $ARGS_WITHOUT_PLATFORM
+
+export ARGS_WITHOUT_PLATFORM=$@
+
+#echo STM32 Debug script.
+#echo $ARGS_WITHOUT_PLATFORM
 
 
-st-util & 
-gdbserverPID=$!
+#st-util & 
+#gdbserverPID=$!
 
-echo pid is $gdbserverPID
+#echo pid is $gdbserverPID
 arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM
-kill $gdbserverPID
+#kill -9 $gdbserverPID

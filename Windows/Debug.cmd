@@ -14,8 +14,8 @@
 @set BLOCKWORKS_PLATFORM_BASEWITHPROPERSLASHES=%BLOCKWORKS_PLATFORM_BASE:\=/%
 @set BLOCKWORKS_PLATFORM_BASEFROMHOSTROOT=%BLOCKWORKS_PLATFORM_BASEWITHPROPERSLASHES:~2,100000%
 
-call vagrant ssh-config > sshConfig
+@call vagrant ssh-config > %TEMP%\sshConfig
 
-ssh -F sshConfig default -C "cd /HostRoot%THISDIRFROMHOSTROOT% && /HostRoot%BUILDDIRFROMHOSTROOT%/Common/STM32/Debug %* "
+@ssh -F %TEMP%\sshConfig default -C "cd /HostRoot%THISDIRFROMHOSTROOT% && /HostRoot%BUILDDIRFROMHOSTROOT%/Common/STM32/Debug %* "
 
 
