@@ -5,7 +5,7 @@
 require 'Win32API'
 require 'win32ole'
 require 'rbconfig'
-include Config
+include RbConfig
 
 
 
@@ -23,10 +23,17 @@ def MapWindowsDrives(config)
 
   drives.each do |drive|
     if drive.IsReady
-      sourcePath = "#{drive.DriveLetter}:/"
-      targetPath = "/HostRoot/#{drive.DriveLetter}/"
-      #puts "#{sourcePath} = #{targetPath}"
+
+      driveLetter = drive.DriveLetter.upcase
+      sourcePath = "#{driveLetter}:/"
+      targetPath = "/HostRoot/#{driveLetter}/"
       config.vm.synced_folder sourcePath, targetPath
+
+      driveLetter = drive.DriveLetter.downcase
+      sourcePath = "#{driveLetter}:/"
+      targetPath = "/HostRoot/#{driveLetter}/"
+      config.vm.synced_folder sourcePath, targetPath
+
     else
       #puts "drive #{drive.DriveLetter} is not ready."
     end
