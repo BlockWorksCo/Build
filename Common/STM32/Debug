@@ -11,5 +11,6 @@ export ARGS_WITHOUT_PLATFORM=$@
 #gdbserverPID=$!
 
 #echo pid is $gdbserverPID
-arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM
+#arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM  | sed "s/\/HostRoot\//c:\//g"
+arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM 
 #kill -9 $gdbserverPID

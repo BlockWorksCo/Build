@@ -1,6 +1,41 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+
+require 'Win32API'
+require 'win32ole'
+require 'rbconfig'
+include Config
+
+
+
+#
+#
+#
+def MapWindowsDrives(config)
+
+  #
+  # Map all the windows drives to /HostRoot.
+  #
+  #GetLogicalDriveStrings Win32API.new("kernel32", "GetLogicalDriveStrings", ['L', 'P'], 'L')
+  file_system             = WIN32OLE.new("Scripting.FileSystemObject")
+  drives                  = file_system.Drives
+
+  drives.each do |drive|
+    if drive.IsReady
+      sourcePath = "#{drive.DriveLetter}:/"
+      targetPath = "/HostRoot/#{drive.DriveLetter}/"
+      #puts "#{sourcePath} = #{targetPath}"
+      config.vm.synced_folder sourcePath, targetPath
+    else
+      #puts "drive #{drive.DriveLetter} is not ready."
+    end
+  end
+
+end
+
+
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
@@ -37,8 +72,24 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../", "/BlockWorksBuild"
-  config.vm.synced_folder "/", "/HostRoot"
+  config.vm.synced_folder "../", "/BlockWorksBuild"  
+
+  #
+  # Map the host filesystem.
+  #
+  platformName = RbConfig::CONFIG['host_os']
+  puts platformName
+  case platformName
+    when /mswin|windows|mingw32/i
+      puts "Windows host"
+      MapWindowsDrives(config)
+    when /linux|arch/i
+      config.vm.synced_folder "/", "/HostRoot"
+    when /darwin/i
+      config.vm.synced_folder "/", "/HostRoot"
+    else
+      puts "Unknown host platform!"
+  end
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.

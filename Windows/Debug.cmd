@@ -16,6 +16,7 @@
 
 @call vagrant ssh-config > %TEMP%\sshConfig
 
-@ssh -F %TEMP%\sshConfig default -C "cd /HostRoot%THISDIRFROMHOSTROOT% && /HostRoot%BUILDDIRFROMHOSTROOT%/Common/STM32/Debug %* "
+@rem ssh -F %TEMP%\sshConfig default -T -C "cd /HostRoot%THISDIRFROMHOSTROOT% && /HostRoot%BUILDDIRFROMHOSTROOT%/Common/STM32/Debug %*  | sed "s/xxx/yyy/g" "
+@ssh -F %TEMP%\sshConfig default -t -C "cd /HostRoot%THISDIRFROMHOSTROOT% && /HostRoot%BUILDDIRFROMHOSTROOT%/Common/STM32/Debug %* "
 
 
