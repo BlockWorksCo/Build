@@ -78,10 +78,9 @@ Vagrant.configure("2") do |config|
   # Map the host filesystem.
   #
   platformName = RbConfig::CONFIG['host_os']
-  puts platformName
+  #puts platformName
   case platformName
     when /mswin|windows|mingw32/i
-      puts "Windows host"
       MapWindowsDrives(config)
     when /linux|arch/i
       config.vm.synced_folder "/", "/HostRoot"
