@@ -9,7 +9,7 @@ set -x # Print commands and their arguments as they are executed.
 #
 # Tools
 #
-apt-get update
+#apt-get update
 apt-get install -y software-properties-common
 apt-get install -y pkg-config
 apt-get install -y mercurial
@@ -25,8 +25,8 @@ apt-get install -y python-software-properties
 #
 apt-get install -y build-essential
 apt-get install -y clang
-apt-get install gdbserver
-apt-get install gdb
+apt-get install -y gdbserver
+apt-get install -y gdb
 
 #
 # MSP430 development
@@ -49,12 +49,16 @@ apt-get install -y mingw32
 #
 # STM32 development.
 #
-apt-add-repository -y ppa:dsanda/ppa
+add-apt-repository -y ppa:terry.guo/gcc-arm-embedded
 apt-get update
-apt-get install gcc-arm-none-eabi
+apt-get install -y gcc-arm-none-eabi
+
+apt-get install -y openocd
 
 cd ~vagrant
 git clone https://github.com/texane/stlink.git
+#http://www.blockworks.co/Downloads/stlink.zip
+#unzip stlink.zip
 cd stlink
 ./autogen.sh
 ./configure
