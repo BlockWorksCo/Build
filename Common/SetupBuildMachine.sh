@@ -7,6 +7,20 @@ set -e # Exit script immediately on first error.
 set -x # Print commands and their arguments as they are executed.
 
 #
+# Setup the http_proxy and https_proxy iff they exist.
+#
+if [ -e /vagrant/https_proxy ]
+then 
+	export https_proxy=`cat /vagrant/https_proxy`
+fi
+
+if [ -e /vagrant/http_proxy ]
+then
+	export http_proxy=`cat /vagrant/http_proxy`
+fi
+
+
+#
 # Tools
 #
 #apt-get update
@@ -57,9 +71,10 @@ apt-get install -y openocd
 
 cd ~vagrant
 git clone https://github.com/texane/stlink.git
-#http://www.blockworks.co/Downloads/stlink.zip
+#curl -O http://BlockWorks.co/Downloads/stlink.zip
 #unzip stlink.zip
 cd stlink
+chmod a+x ./autogen.sh
 ./autogen.sh
 ./configure
 make
@@ -84,7 +99,7 @@ apt-get install -y arduino-core
 # RaspberryPi toolchain.
 #
 chmod -R a+rw ~vagrant/*
-apt-get install -y git rsync cmake ia32-libs-multiarch
+apt-get install -y git rsync cmake
 cd ~vagrant
 git clone https://github.com/raspberrypi/tools.git
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin

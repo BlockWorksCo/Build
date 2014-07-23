@@ -12,6 +12,26 @@ include RbConfig
 #
 #
 #
+def CreateEnvironmentFile(name)
+
+  file_name = name
+  File.delete file_name if File.file? file_name
+
+  if ENV[name]
+    Dir.chdir( ENV['VAGRANT_CWD'] )
+    out_file = File.new(name, "w")
+    out_file.puts(ENV[name])
+    out_file.close
+  else
+    puts name+' does not exist.'
+  end
+end
+
+
+
+#
+#
+#
 def MapWindowsDrives(config)
 
   #
@@ -96,6 +116,12 @@ Vagrant.configure("2") do |config|
     else
       puts "Unknown host platform!"
   end
+
+  #
+  # Create the files for the http_proxy info to be reflected inside the VM.
+  #
+  CreateEnvironmentFile 'http_proxy'
+  CreateEnvironmentFile 'https_proxy'
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
