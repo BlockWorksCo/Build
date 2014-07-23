@@ -111,7 +111,7 @@ export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnuea
 echo export BLOCKWORKS_BUILD=/BlockWorks >> ~vagrant/.bash_profile
 echo export HOSTROOT=/HostRoot >> ~vagrant/.bash_profile
 echo ls=\'ls -la\' >> ~vagrant/.bash_profile
-echo export PATH=/home/vagrant/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin\:\$PATH >> ~vagrant/.bash_profile
+echo export PATH=/home/vagrant/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin\:\$PATH >> ~vagrant/.bash_profile
 
 
 #
