@@ -66,7 +66,7 @@ apt-get install -y mingw32
 add-apt-repository -y ppa:terry.guo/gcc-arm-embedded
 apt-get update
 apt-get install -y gcc-arm-none-eabi
-
+apt-get -o Dpkg::Options::="--force-overwrite"  install -y gdb-arm-none-eabi
 apt-get install -y openocd
 
 cd ~vagrant
