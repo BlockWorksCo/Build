@@ -6,7 +6,7 @@ require 'rbconfig'
 include RbConfig
 hostOS = RbConfig::CONFIG['host_os']
 
-if hostOS == 'mswin'
+if hostOS == 'mswin' || hostOS == 'mingw32'
   require 'Win32API'
   require 'win32ole'
 end
