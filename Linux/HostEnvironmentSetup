@@ -11,7 +11,7 @@ export BLOCKWORKS_HOST_PLATFORM=Linux
 #
 # User configurables.
 #
-export BLOCKWORKS_BUILD_HOSTTYPE=OSX
+export BLOCKWORKS_BUILD_HOSTTYPE=Linux
 export BLOCKWORKS_BUILD_BASE=~/BlockWorks/Build
 export BLOCKWORKS_PLATFORM_BASE=~/BlockWorks/Platform
 

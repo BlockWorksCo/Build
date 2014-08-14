@@ -1,7 +1,13 @@
 #!/bin/bash
 
 
+vagrant ssh-config > sshConfig
+args="$@"
+#ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD || (gdbserver :2222 $args & gdb $args)"
 
-export THISDIRFROMHOSTROOT=`pwd`
-vagrant ssh -c "cd /HostRoot$THISDIRFROMHOSTROOT && /HostRoot$BLOCKWORKS_BUILD_BASE/Common/$BLOCKWORKS_TARGET_PLATFORM/Debug %* -ex 'tar ext:4242' "
+PLATFORM=`echo $* | sed -E "s/.*PLATFORM=([a-zA-Z0-9]+).*/\1/g"`
+ARGS_WITHOUT_PLATFORM=`echo $* | sed -E "s/PLATFORM=([a-zA-Z0-9]+)//g" `
+
+TARGET_DEBUG_SCRIPT=/HostRoot${BLOCKWORKS_BUILD_BASE}/Common/${PLATFORM}/Debug
+ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && ($TARGET_DEBUG_SCRIPT $ARGS_WITHOUT_PLATFORM)"
 

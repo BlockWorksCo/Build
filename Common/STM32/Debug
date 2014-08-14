@@ -1,16 +1,5 @@
 #!/bin/bash
 
 
-export ARGS_WITHOUT_PLATFORM=$@
+arm-none-eabi-gdb $*
 
-#echo STM32 Debug script.
-#echo $ARGS_WITHOUT_PLATFORM
-
-
-#st-util & 
-#gdbserverPID=$!
-
-#echo pid is $gdbserverPID
-#arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM  | sed "s/\/HostRoot\//c:\//g"
-arm-none-eabi-gdb $ARGS_WITHOUT_PLATFORM 
-#kill -9 $gdbserverPID

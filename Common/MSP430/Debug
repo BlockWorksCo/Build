@@ -1,16 +1,4 @@
 #!/bin/bash
 
 
-
-export PLATFORM=`echo $* | sed -E "s/.*PLATFORM=([a-zA-Z0-9]+).*/\1/g"`
-export ARGS_WITHOUT_PLATFORM=`echo $* | sed -E "s/PLATFORM=([a-zA-Z0-9]+)//g" `
-
-echo target is: $PLATFORM
-echo host is: $BLOCKWORKS_BUILD_HOSTTYPE
-echo args without platform: $ARGS_WITHOUT_PLATFORM
-
-vagrant ssh-config > sshConfig
-args="$@"
-#ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD || (gdbserver :2222 $args & gdb $args)"
-ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && (gdb $ARGS_WITHOUT_PLATFORM)"
-
+msp43-gdb $*
