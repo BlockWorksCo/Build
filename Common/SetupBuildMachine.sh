@@ -9,14 +9,14 @@ set -x # Print commands and their arguments as they are executed.
 #
 # Setup the http_proxy and https_proxy iff they exist.
 #
-if [ -e /vagrant/https_proxy ]
+if [ -e ~/https_proxy ]
 then 
-	export https_proxy=`cat /vagrant/https_proxy`
+	export https_proxy=`cat ~/https_proxy`
 fi
 
-if [ -e /vagrant/http_proxy ]
+if [ -e ~/http_proxy ]
 then
-	export http_proxy=`cat /vagrant/http_proxy`
+	export http_proxy=`cat ~/http_proxy`
 fi
 
 
@@ -69,7 +69,7 @@ apt-get install -y gcc-arm-none-eabi
 apt-get -o Dpkg::Options::="--force-overwrite"  install -y gdb-arm-none-eabi
 apt-get install -y openocd
 
-cd ~vagrant
+cd ~/
 git clone https://github.com/texane/stlink.git
 #curl -O http://BlockWorks.co/Downloads/stlink.zip
 #unzip stlink.zip
@@ -98,9 +98,9 @@ apt-get install -y arduino-core
 #
 # RaspberryPi toolchain.
 #
-chmod -R a+rw ~vagrant/*
+chmod -R a+rw ~/*
 apt-get install -y git rsync cmake
-cd ~vagrant
+cd ~
 git clone https://github.com/raspberrypi/tools.git
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 
@@ -108,10 +108,10 @@ export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnuea
 #
 # Setup paths.
 #
-echo export BLOCKWORKS_BUILD=/BlockWorks >> ~vagrant/.bash_profile
-echo export HOSTROOT=/HostRoot >> ~vagrant/.bash_profile
-echo ls=\'ls -la\' >> ~vagrant/.bash_profile
-echo export PATH=/home/vagrant/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin\:\$PATH >> ~vagrant/.bash_profile
+echo export BLOCKWORKS_BUILD=/BlockWorks >> ~/.bash_profile
+echo export HOSTROOT=/HostRoot >> ~/.bash_profile
+echo ls=\'ls -la\' >> ~/.bash_profile
+echo export PATH=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin\:\$PATH >> ~/.bash_profile
 
 
 #

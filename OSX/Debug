@@ -9,5 +9,5 @@ PLATFORM=`echo $* | sed -E "s/.*PLATFORM=([a-zA-Z0-9]+).*/\1/g"`
 ARGS_WITHOUT_PLATFORM=`echo $* | sed -E "s/PLATFORM=([a-zA-Z0-9]+)//g" `
 
 TARGET_DEBUG_SCRIPT=/HostRoot${BLOCKWORKS_BUILD_BASE}/Common/${PLATFORM}/Debug
-ssh -F sshConfig default -t -t -C "cd /HostRoot$PWD && ($TARGET_DEBUG_SCRIPT $ARGS_WITHOUT_PLATFORM)"
+ssh $BLOCKWORKS_USERANDMACHINE -t -t -C "cd /HostRoot$PWD && ($TARGET_DEBUG_SCRIPT $ARGS_WITHOUT_PLATFORM)"
 
