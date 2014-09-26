@@ -8,21 +8,6 @@
 set -e # Exit script immediately on first error.
 set -x # Print commands and their arguments as they are executed.
 
-#
-# Setup the http_proxy and https_proxy iff they exist.
-#
-if [ -e ~/https_proxy ]
-then 
-	export https_proxy=`cat /BlockWorks/Build/Common/https_proxy`
-    git config --global https.proxy $https_proxy
-fi
-
-if [ -e ~/http_proxy ]
-then
-	export http_proxy=`cat /BlockWorks/Build/Common/http_proxy`
-    git config --global http.proxy $http_proxy
-fi
-
 
 #
 # Tools

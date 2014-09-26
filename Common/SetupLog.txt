@@ -1,0 +1,28 @@
+- Forward port 22 (ssh) into VM.
+- scp SetupBuildMachine.sh blockworks@192.168.56.1:~/
+- export http_proxy=http://st26:Homeowner3#@cameurisa01.europe.root.pri:8080
+- export https_proxy=https://st26:Homeowner3#@cameurisa01.europe.root.pri:8080
+- git config --global http.proxy st26:Homeowner3#@cameurisa01.europe.root.pri:8080
+- git config --global http.proxy st26:Homeowner3#@cameurisa01.europe.root.pri:8080
+- sudo ./SetupBuildMachine.sh
+
+- "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" sharedfolder add "Ubuntu VB" --name "/HostRoot" --hostpath "C:\BlockWorks\Build\Common"
+
+- sudo apt-get install virtualbox-guest-utils
+- sudo usermod -aG vboxsf blockworks
+
+
+
+
+
+- "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" sharedfolder add "BlockWorksBuild" --name "BLOCKWORKS_BASE" --hostpath "C:\BlockWorks"
+- sudo mount -t vboxsf BLOCKWORKS_BASE /BlockWorks
+- sudo apt-get install git
+- source /BlockWorks/Build/Common/SetupProxy.sh
+- add vboxsf to /etc/modules
+- add "BLOCKWORKS_BASE       /BlockWorks   vboxsf  uid=blockworks,gid=blockworks,dmode=774,fmode=664     0   0" to /etc/fstab
+
+
+
+
+
