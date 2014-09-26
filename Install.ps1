@@ -30,22 +30,6 @@ choco install openssh
 # Configure git for use behind a proxy.
 # *NOTE: Change these as appropriate...
 #
-Get-ItemProperty 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings' | Select-Object *Proxy*
-
-$proxy = [System.Net.WebRequest]::GetSystemWebProxy()
-$proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
-
-$wc = new-object system.net.WebClient
-$wc.proxy = $proxy
-$webpage = $wc.DownloadData($url)
-
-function Get-Webclient {
-    $wc = New-Object Net.WebClient
-    $wc.UseDefaultCredentials = $true
-    $wc.Proxy.Credentials = $wc.Credentials
-    $wc
-}
-
 git config --global http.proxy username:password@cameurisa01.europe.root.pri:8080
 git config --global https.proxy username:password@cameurisa01.europe.root.pri:8080
 

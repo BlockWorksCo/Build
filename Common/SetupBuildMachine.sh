@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 #
 #
 #
@@ -11,19 +13,21 @@ set -x # Print commands and their arguments as they are executed.
 #
 if [ -e ~/https_proxy ]
 then 
-	export https_proxy=`cat ~/https_proxy`
+	export https_proxy=`cat /BlockWorks/Build/Common/https_proxy`
+    git config --global https.proxy $https_proxy
 fi
 
 if [ -e ~/http_proxy ]
 then
-	export http_proxy=`cat ~/http_proxy`
+	export http_proxy=`cat /BlockWorks/Build/Common/http_proxy`
+    git config --global http.proxy $http_proxy
 fi
 
 
 #
 # Tools
 #
-#apt-get update
+apt-get update
 apt-get install -y software-properties-common
 apt-get install -y pkg-config
 apt-get install -y mercurial
