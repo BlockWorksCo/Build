@@ -20,7 +20,7 @@
 - sudo apt-get install git
 - source /BlockWorks/Build/Common/SetupProxy.sh
 - add vboxsf to /etc/modules
-- add "BLOCKWORKS_BASE       /BlockWorks   vboxsf  uid=blockworks,gid=blockworks,dmode=774,fmode=664     0   0" to /etc/fstab
+- add "BLOCKWORKS_BASE       /BlockWorks   vboxsf  uid=blockworks,gid=blockworks,dmode=777,fmode=777     0   0" to /etc/fstab
 
 
 

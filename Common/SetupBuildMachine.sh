@@ -59,7 +59,7 @@ apt-get -o Dpkg::Options::="--force-overwrite"  install -y gdb-arm-none-eabi
 apt-get install -y openocd
 
 cd ~/
-git clone https://github.com/texane/stlink.git
+git clone http://github.com/texane/stlink.git
 #curl -O http://BlockWorks.co/Downloads/stlink.zip
 #unzip stlink.zip
 cd stlink
@@ -90,7 +90,7 @@ apt-get install -y arduino-core
 chmod -R a+rw ~/*
 apt-get install -y git rsync cmake
 cd ~
-git clone https://github.com/raspberrypi/tools.git
+git clone http://github.com/raspberrypi/tools.git
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 
 
