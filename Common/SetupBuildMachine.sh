@@ -13,6 +13,7 @@ set -x # Print commands and their arguments as they are executed.
 # Tools
 #
 apt-get update
+apt-get install -y git
 apt-get install -y software-properties-common
 apt-get install -y pkg-config
 apt-get install -y mercurial
