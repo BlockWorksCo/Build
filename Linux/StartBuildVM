@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+export BLOCKWORKS_BUILDVM_USERHOST=blockworks@172.16.250.2
+
+VBoxManage sharedfolder add "BlockWorksBuild" --name "BLOCKWORKS_BASE" --hostpath "$HOME/BlockWorks"
+VBoxManage startvm "BlockWorksBuild" --type headless
+
+
+
+
