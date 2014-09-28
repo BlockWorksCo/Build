@@ -23,6 +23,15 @@
 - add "BLOCKWORKS_BASE       /BlockWorks   vboxsf  uid=blockworks,gid=blockworks,dmode=777,fmode=777     0   0" to /etc/fstab
 
 
+- ssh-keygen
+- scp /home/steve/.ssh/id_rsa.pub  $BLOCKWORKS_BUILDVM_USERHOST:~/
+- ssh $BLOCKWORKS_BUILDVM_USERHOST "cat ~/id_rsa.pub >> ~/.ssh/authorized_keys"
+
+
+- ssh $BLOCKWORKS_BUILDVM_USERHOST -t -t "cd /HostRoot/home/steve/BlockWorks/Examples/HelloWorld && gdb Output/Main"
+http://thenigh7sh4de.wordpress.com/2014/03/28/setting-up-sublimegdb/
+
+
 
 
 
