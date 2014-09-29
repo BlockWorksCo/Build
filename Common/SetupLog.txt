@@ -32,6 +32,6 @@
 http://thenigh7sh4de.wordpress.com/2014/03/28/setting-up-sublimegdb/
 
 
-
+- BuildVMssh "sudo -E env /BlockWorks/Build/Common/SetupBuildMachine.sh"
 
 
