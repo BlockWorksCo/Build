@@ -1,8 +1,8 @@
 
 
-set BLOCKWORKS_BUILDVM_USERHOST=blockworks@192.168.56.1
-
-VBoxManage.exe sharedfolder add "BlockWorksBuild" --name "BLOCKWORKS_BASE" --hostpath "C:\BlockWorks"
+VBoxManage sharedfolder add "BlockWorksBuild" --name "BLOCKWORKS_BASE" --hostpath "c:\\BlockWorks"
+VBoxManage sharedfolder add "BlockWorksBuild" --name "HOSTROOT" --hostpath "c:\\"
 VBoxManage startvm "BlockWorksBuild" --type headless
-rem ssh %BLOCKWORKS_BUILDVM_USERHOST% -C "source /BlockWorks/Build/Common/SetupProxy.sh"
+
+VBoxManage hostonlyif ipconfig "VirtualBox Host-Only Ethernet Adapter" --ip 172.16.250.2 --netmask 255.255.255.0
 

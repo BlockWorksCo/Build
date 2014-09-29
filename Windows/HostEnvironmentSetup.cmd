@@ -1,5 +1,12 @@
 
 
+
+rem
+rem
+rem
+set BLOCKWORKS_BUILDVM_USERHOST=blockworks@172.16.250.2
+
+
 rem
 rem Argument is the target platform STM32/MSP320/Win32/Linux
 rem
