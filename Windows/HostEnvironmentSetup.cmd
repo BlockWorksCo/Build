@@ -1,8 +1,6 @@
 
 
 
-
-
 rem
 rem User configurables.
 rem
@@ -22,7 +20,7 @@ rem *NOTE: Make sure that host-specific paths come *before* Common paths to allo
 rem reuse the Common code while still have the ability to override for Host specifics.
 rem
 set PATH=%BLOCKWORKS_BUILD_BASE%\Common;%PATH%
-set PATH=%BLOCKWORKS_BUILD_BASE%\%BLOCKWORKS_BUILD_HOSTTYPE%;%PATH%
+set PATH=%BLOCKWORKS_BUILD_BASE%\Windows;%PATH%
 
 
 
