@@ -10,5 +10,5 @@ VBoxManage sharedfolder add "BlockWorksBuild" --name "HOSTROOT_R" --hostpath "r:
 
 VBoxManage startvm "BlockWorksBuild" --type headless
 
-VBoxManage hostonlyif ipconfig "VirtualBox Host-Only Ethernet Adapter" --ip 172.16.250.2 --netmask 255.255.255.0
+VBoxManage hostonlyif ipconfig "VirtualBox Host-Only Ethernet Adapter" --ip 172.18.250.2 --netmask 255.255.255.0
 

@@ -34,4 +34,7 @@ http://thenigh7sh4de.wordpress.com/2014/03/28/setting-up-sublimegdb/
 
 - BuildVMssh "sudo -E env /BlockWorks/Build/Common/SetupBuildMachine.sh"
 
-
+- vboxmanage hostonlyif create
+- vboxmanage hostonlyif ipconfig vboxnet0 --ip 10.0.0.10 --netmask 255.255.255.0
+- VBoxManage dhcpserver add --ifname vboxnet0 --ip 172.18.250.1 --netmask 255.255.255.0 --lowerip 172.18.250.100 --upperip 172.18.250.200
+- VBoxManage dhcpserver modify --ifname vboxnet0 --enable
