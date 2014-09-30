@@ -1,12 +1,20 @@
 #!/bin/sh
 
 
+VBoxManage dhcpserver remove --netname "HostInterfaceNetworking-vboxnet0"
+VBoxManage hostonlyif create
+VBoxManage hostonlyif ipconfig "vboxnet0" --ip 192.168.4.1 --netmask 255.255.255.0
+VBoxManage dhcpserver add --ifname vboxnet0 --ip 192.168.4.1 --netmask 255.255.255.0 --lowerip 192.168.4.100 --upperip 192.168.4.200
+VBoxManage dhcpserver modify --ifname vboxnet0 --enable
 
+VBoxManage sharedfolder remove "BlockWorksBuild" --name "BLOCKWORKS_BASE"
 VBoxManage sharedfolder add "BlockWorksBuild" --name "BLOCKWORKS_BASE" --hostpath "$HOME/BlockWorks"
+
+VBoxManage sharedfolder remove "BlockWorksBuild" --name "HOSTROOT"
 VBoxManage sharedfolder add "BlockWorksBuild" --name "HOSTROOT" --hostpath "/"
+
 VBoxManage startvm "BlockWorksBuild" --type headless
 
-VBoxManage hostonlyif ipconfig "VirtualBox Host-Only Ethernet Adapter" --ip 172.16.250.2 --netmask 255.255.255.0
 
 
 
