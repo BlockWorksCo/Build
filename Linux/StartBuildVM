@@ -9,6 +9,7 @@ VBoxManage sharedfolder add "BlockWorksBuild" --name "HOSTROOT" --hostpath "/"
 
 VBoxManage startvm "BlockWorksBuild" --type headless
 
+BuildVMssh "sudo /BlockWorks/Build/Common/MountHostRoot.py"
 
 
 
