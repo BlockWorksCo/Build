@@ -3,6 +3,6 @@
 
 
 
-ssh -i ~/BlockWorks/Build/Common/PrivateKey $BLOCKWORKS_BUILDVM_USERHOST $*
+ssh -p $BLOCKWORKS_BUILDVM_SSH_PORT -i ~/BlockWorks/Build/Common/PrivateKey $BLOCKWORKS_BUILDVM_USERHOST $*
 
 

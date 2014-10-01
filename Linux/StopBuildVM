@@ -1,5 +1,5 @@
 #!/bin/sh
 
 
-ssh -i $BLOCKWORKS_BUILD_BASE/Common/PrivateKey $BLOCKWORKS_BUILDVM_USERHOST "sudo shutdown -h now"
+ssh -p $BLOCKWORKS_BUILDVM_SSH_PORT -i $BLOCKWORKS_BUILD_BASE/Common/PrivateKey $BLOCKWORKS_BUILDVM_USERHOST "sudo shutdown -h now"
 
