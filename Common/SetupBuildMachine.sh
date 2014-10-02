@@ -92,7 +92,7 @@ chmod -R a+rw ~/*
 apt-get install -y git rsync cmake
 cd ~
 git clone http://github.com/raspberrypi/tools.git
-export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
+export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
 
 
 #
@@ -101,7 +101,7 @@ export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnuea
 echo export BLOCKWORKS_BUILD=/BlockWorks >> ~/.bash_profile
 echo export HOSTROOT=/HostRoot >> ~/.bash_profile
 echo ls=\'ls -la\' >> ~/.bash_profile
-echo export PATH=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin\:\$PATH >> ~/.bash_profile
+echo export PATH=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin\:\$PATH >> ~/.bash_profile
 
 
 #
