@@ -1,10 +1,5 @@
 
 
-VBoxManage dhcpserver remove --netname "HostInterfaceNetworking-vboxnet0"
-VBoxManage hostonlyif create
-VBoxManage hostonlyif ipconfig "vboxnet0" --ip 172.16.250.1 --netmask 255.255.255.0
-VBoxManage dhcpserver add --ifname vboxnet0 --ip 172.16.250.1 --netmask 255.255.255.0 --lowerip 172.16.250.100 --upperip 172.16.250.200
-VBoxManage dhcpserver modify --ifname vboxnet0 --enable
 
 
 VBoxManage sharedfolder remove "BlockWorksBuild" --name "BLOCKWORKS_BASE"

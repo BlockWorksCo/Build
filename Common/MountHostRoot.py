@@ -25,8 +25,8 @@ for drive in drives:
 
 
 
-if len(drives) > 0:
+if len(drives) == 0:
     print('>>> Mounting /HostRoot')
-    outText = subprocess.check_output(['mount','-t','vboxsf','HOSTROOT','/HostRoot'])
+    outText = subprocess.check_output(['mount','-t','vboxsf','HOSTROOT','/HostRoot','-o','uid=blockworks,gid=blockworks,dmode=777,fmode=777'])
     print(outText)
 
